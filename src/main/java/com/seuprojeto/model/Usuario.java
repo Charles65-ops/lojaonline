@@ -14,4 +14,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+
+    public static void setId(Long id) {
+    }
 }

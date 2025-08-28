@@ -8,8 +8,8 @@ import java.util.List;
 
 @Service
 public class UsuarioService {
-
-     UsuarioRepository usuarioRepository;
+    @Autowired
+     private UsuarioRepository usuarioRepository;
 
     public List<Usuario> listarTodos() {
         return usuarioRepository.findAll();
@@ -17,5 +17,19 @@ public class UsuarioService {
 
     public Usuario salvar(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+
+    public void deletar(Long id)
+    {
+        usuarioRepository.deleteById(id);
+    }
+
+    public Usuario atualizar(Long id, Usuario usuario) {
+        return usuario;
+    }
+
+    public Usuario findById(Long id) {
+
+        return usuarioRepository.findById(id).orElseThrow();
     }
 }
