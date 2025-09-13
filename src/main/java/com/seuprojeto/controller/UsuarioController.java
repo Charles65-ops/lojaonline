@@ -16,7 +16,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // Listar todos os produtos
+
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuario() {
         System.out.println("Listando todos os usuários");
@@ -32,22 +32,22 @@ public class UsuarioController {
 
 
 
-    // Criar novo produto
+
     @PostMapping
     public ResponseEntity<Usuario> criarProduto(@RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioService.salvar(usuario);
         return ResponseEntity.status(201).body(novoUsuario); // 201 Created
     }
 
-    // Atualizar produto existente
+
     @PutMapping("/{id}")
-    public Usuario atualizarProduto(@PathVariable Long id, @RequestBody Usuario usuario) {
-        Usuario.setId(id);
+    public Usuario atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+        usuario.setId(id);
         return usuarioService.atualizar(id, usuario);
 
     }
 
-    // Deletar produto por ID
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
         System.out.println("Deletanto usuario pelo Id:" + id);
